@@ -9,7 +9,7 @@ using System.Threading.Tasks;
   -  2. Skapa en rekursiv metod som tar in en sträng och returnerar den baklänges.
   -  3. Skapa en generisk metod som tar in ett okänt antal objekt och returnerar en array av dem.
   -  4. Skapa en klass Box som tar in ett okänt antal objekt och lagrar dem.
-  5. Skapa en metod i klassen Box som kan jämföra ifall två stycken Boxar innehåller samma datatyp.*
+  -  5. Skapa en metod i klassen Box som kan jämföra ifall två stycken Boxar innehåller samma datatyp.*
   6. Skapa en rekursiv metod som tar in ett ord och skriver ut alla anagram av ordet.*
   7. Skapa Application som rekursivt ritar ut ett fibonacci-träd.*
  */
@@ -51,9 +51,18 @@ class Program
         {
             Console.WriteLine("4:");
             Box box = new Box(123, 321);
-            Console.WriteLine("{0}", box.ToString());
+            Console.WriteLine("Box: {0}", box.ToString());
             box.AddItem("Wooh");
-            Console.WriteLine("{0}", box.ToString());
+            Console.WriteLine("Box: {0}", box.ToString());
+        }
+
+        {
+            Console.WriteLine("5:");
+            Box box = new Box(123, 321);
+            Box box2 = new Box(123, 321, 456);
+            Console.WriteLine("Box 1: {0}", box.ToString());
+            Console.WriteLine("Box 2: {0}", box2.ToString());
+            Console.WriteLine("(box == box2) = {0}", box.Equals(box2));
         }
 
         Console.Read();
