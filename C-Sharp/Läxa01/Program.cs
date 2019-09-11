@@ -18,13 +18,35 @@ class Program
 {
     static void Main(string[] args)
     {
-        int[] numbers = { 4, 6, 10, 8, 2 };
-        int result = SumArray(numbers);
-        Console.WriteLine("Sum Result: " + result);
+        {
+            Console.WriteLine("1: ");
+            int[] numbers = { 4, 6, 10, 8, 2 };
+            int result = SumArray(numbers);
+            Console.WriteLine("Sum Result: " + result);
+        }
 
-        string str = "Hello World";
-        string reversedStr = ReverseStr(str);
-        Console.WriteLine("Reverse: {0} -> {1}", str, reversedStr);
+        Console.WriteLine();
+
+        {
+            Console.WriteLine("2: ");
+            string str = "Hello World";
+            string reversedStr = ReverseStr(str);
+            Console.WriteLine("Reverse: {0} -> {1}", str, reversedStr);
+        }
+
+        Console.WriteLine();
+
+        {
+            Console.WriteLine("3: ");
+            object[] objs = Test(123, 321, "Wooh", "Hello", 456, "World");
+
+            Console.Write("[");
+            foreach (object obj in objs)
+            {
+                Console.Write("{0}, ", obj.ToString());
+            }
+            Console.WriteLine("]");
+        }
 
         Console.Read();
     }
@@ -46,5 +68,10 @@ class Program
             return str;
 
         return str[str.Length - 1] + ReverseStr(str.Substring(0, str.Length - 1));
+    }
+
+    static object[] Test(params object[] list)
+    {
+        return list;
     }
 }
