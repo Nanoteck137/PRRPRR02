@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 /*
   -  1. Skapa en metod som tar in ett okänt antal heltal och returnerar deras summa.
   -  2. Skapa en rekursiv metod som tar in en sträng och returnerar den baklänges.
-  3. Skapa en generisk metod som tar in ett okänt antal objekt och returnerar en array av dem.
+  -  3. Skapa en generisk metod som tar in ett okänt antal objekt och returnerar en array av dem.
   4. Skapa en klass Box som tar in ett okänt antal objekt och lagrar dem.
   5. Skapa en metod i klassen Box som kan jämföra ifall två stycken Boxar innehåller samma datatyp.*
   6. Skapa en rekursiv metod som tar in ett ord och skriver ut alla anagram av ordet.*
@@ -38,10 +38,10 @@ class Program
 
         {
             Console.WriteLine("3: ");
-            object[] objs = Test(123, 321, "Wooh", "Hello", 456, "World");
+            int[] numbers = ConvertToArray<int>(123, 321, 456, 654);
 
             Console.Write("[");
-            foreach (object obj in objs)
+            foreach (object obj in numbers)
             {
                 Console.Write("{0}, ", obj.ToString());
             }
@@ -70,7 +70,7 @@ class Program
         return str[str.Length - 1] + ReverseStr(str.Substring(0, str.Length - 1));
     }
 
-    static object[] Test(params object[] list)
+    static T[] ConvertToArray<T>(params T[] list)
     {
         return list;
     }
