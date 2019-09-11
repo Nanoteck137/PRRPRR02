@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 /*
-  1. Skapa en metod som tar in ett okänt antal heltal och returnerar deras summa.
-  2. Skapa en rekursiv metod som tar in en sträng och returnerar den baklänges.
+  -  1. Skapa en metod som tar in ett okänt antal heltal och returnerar deras summa.
+  -  2. Skapa en rekursiv metod som tar in en sträng och returnerar den baklänges.
   3. Skapa en generisk metod som tar in ett okänt antal objekt och returnerar en array av dem.
   4. Skapa en klass Box som tar in ett okänt antal objekt och lagrar dem.
   5. Skapa en metod i klassen Box som kan jämföra ifall två stycken Boxar innehåller samma datatyp.*
@@ -22,6 +22,10 @@ class Program
         int result = SumArray(numbers);
         Console.WriteLine("Sum Result: " + result);
 
+        string str = "Hello World";
+        string reversedStr = ReverseStr(str);
+        Console.WriteLine("Reverse: {0} -> {1}", str, reversedStr);
+
         Console.Read();
     }
 
@@ -34,5 +38,13 @@ class Program
         }
 
         return result;
+    }
+
+    static string ReverseStr(string str)
+    {
+        if (str.Length <= 0)
+            return str;
+
+        return str[str.Length - 1] + ReverseStr(str.Substring(0, str.Length - 1));
     }
 }
