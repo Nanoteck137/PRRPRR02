@@ -65,6 +65,13 @@ class Program
             Console.WriteLine("(box == box2) = {0}", box.Equals(box2));
         }
 
+        {
+            Console.WriteLine("6:");
+            string str = "abc";
+            PrintAnagram(str.ToCharArray(), 0);
+        }
+
+
         Console.Read();
     }
 
@@ -90,5 +97,28 @@ class Program
     static T[] ConvertToArray<T>(params T[] list)
     {
         return list;
+    }
+
+    static void PrintAnagram(char[] str, int i)
+    {
+        if (i == str.Length - 1)
+        {
+            Console.WriteLine(str);
+        }
+        else
+        {
+            for (int j = i; j < str.Length; j++)
+            {
+                char c = str[i];
+                str[i] = str[j];
+                str[j] = c;
+
+                PrintAnagram(str, i + 1);
+
+                c = str[i];
+                str[i] = str[j];
+                str[j] = c;
+            }
+        }
     }
 }
