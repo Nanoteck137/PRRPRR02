@@ -14,8 +14,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import net.nanoteck137.flaggor.flags.Flag;
 import net.nanoteck137.flaggor.flags.FlagGerman;
 import net.nanoteck137.flaggor.flags.FlagSwedish;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -26,20 +30,20 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Flaggor Uppgift");
 
-        FlagSwedish swedishFlag = new FlagSwedish();
-        FlagGerman germanFlag = new FlagGerman();
+        ArrayList<Flag> flags = new ArrayList<Flag>();
+        flags.add(new FlagSwedish());
+        flags.add(new FlagGerman());
 
-        FlowPane flags = new FlowPane(germanFlag.render(0.0f, 0.0f, 0.5f), swedishFlag.render(0.0f, 0.0f,  0.5f));
-        flags.setPrefWidth(1280 - 200);
+        FlowPane flagPane = new FlowPane();
+        for(Flag flag : flags) {
+            flagPane.getChildren().add(flag.render(0.0f, 0.0f, 1.0f));
+        }
+        flagPane.setPrefWidth(1280 - 200);
 
         Rectangle rect = new Rectangle(200, 720);
         rect.setFill(new Color(1.0f, 0.0f, 1.0f, 1.0f));
 
         Font font = new Font("Verdana", 24);
-        Text text = new Text("Hello World");
-        text.setEffect(new Glow());
-        text.setFont(font);
-        text.setTextAlignment(TextAlignment.CENTER);
 
         Label label = new Label("Test Label");
         label.setFont(font);
@@ -52,6 +56,15 @@ public class Main extends Application {
         panel.setFillWidth(true);
         panel.setCenterShape(true);
 
+        for(Flag flag : flags) {
+            Label flagName = new Label(flag.getName());
+            flagName.setFont(font);
+            flagName.setTextAlignment(TextAlignment.CENTER);
+            flagName.setTextFill(new Color(0.8f, 0.8f, 0.8f, 1.0f));
+
+            panel.getChildren().add(flagName);
+        }
+
         Rectangle backgroundRect = new Rectangle(200, 720);
         backgroundRect.setFill(new Color(0.3f, 0.3f, 0.3f, 1.0f));
 
@@ -59,7 +72,7 @@ public class Main extends Application {
 
         BorderPane borderPane = new BorderPane();
         borderPane.setLeft(left);
-        borderPane.setCenter(flags);
+        borderPane.setCenter(flagPane);
 
         primaryStage.setScene(new Scene(borderPane, 1280, 720));
         primaryStage.show();
