@@ -23,8 +23,6 @@ public class FlagSwedish extends Flag {
         float flagWidth = 270.0f;
         float flagHeight = 180.0f;
 
-        System.out.println(flagWidth / flagHeight);
-
         StackPane flagGroup = new StackPane();
         flagGroup.setTranslateX(x);
         flagGroup.setTranslateY(y);
@@ -35,13 +33,14 @@ public class FlagSwedish extends Flag {
 
         Rectangle stripe = new Rectangle(30.0f * scale, flagHeight * scale);
         stripe.setFill(new Color(255 / 255.0f, 205 / 255.0f, 0 / 255.0f, 1.0f));
+
         float offset = 70.0f * scale;
         stripe.setTranslateX(-mainRect.getWidth() / 2 + stripe.getWidth() / 2 + offset);
+
         flagGroup.getChildren().add(stripe);
 
         Rectangle stripe2 = new Rectangle(flagWidth * scale, 30.0f * scale);
         stripe2.setFill(new Color(255 / 255.0f, 205 / 255.0f, 0 / 255.0f, 1.0f));
-        stripe2.setTranslateX(0.0f);
         flagGroup.getChildren().add(stripe2);
 
         return flagGroup;

@@ -1,13 +1,13 @@
 package net.nanoteck137.flaggor;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import net.nanoteck137.flaggor.flags.FlagGerman;
 import net.nanoteck137.flaggor.flags.FlagSwedish;
 
 public class Main extends Application {
@@ -20,8 +20,9 @@ public class Main extends Application {
         primaryStage.setTitle("Flaggor Uppgift");
 
         FlagSwedish swedishFlag = new FlagSwedish();
+        FlagGerman germanFlag = new FlagGerman();
 
-        Group root = new Group(swedishFlag.render(40, 40, 0.3f));
+        HBox root = new HBox(germanFlag.render(0.0f, 0.0f, 0.5f), swedishFlag.render(0.0f, 0.0f,  0.5f));
 
         primaryStage.setScene(new Scene(root, 1280, 720));
         primaryStage.show();
