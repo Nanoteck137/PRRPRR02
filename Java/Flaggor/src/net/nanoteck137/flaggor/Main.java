@@ -18,10 +18,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import net.nanoteck137.flaggor.flags.Flag;
-import net.nanoteck137.flaggor.flags.FlagGerman;
-import net.nanoteck137.flaggor.flags.FlagSoviet;
-import net.nanoteck137.flaggor.flags.FlagSwedish;
+import net.nanoteck137.flaggor.flags.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +36,7 @@ public class Main extends Application {
         flags.add(new FlagSwedish());
         flags.add(new FlagGerman());
         flags.add(new FlagSoviet());
+        flags.add(new FlagAmerican());
 
         FlowPane flagPane = new FlowPane();
         for(Flag flag : flags) {
