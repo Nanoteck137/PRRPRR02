@@ -42,23 +42,8 @@ public class Main extends Application {
 
         FlowPane flagPane = new FlowPane();
         for(Flag flag : flags) {
-            flagPane.getChildren().add(flag.render(0.0f, 0.0f, 1.0f));
+            flagPane.getChildren().add(flag.render(0.0f, 0.0f, 2.0f));
         }
-
-        float scale = 0.3f;
-        Polygon polygon = new Polygon();
-        polygon.getPoints().addAll(376.2 * scale, 3535.9* scale, -432.9* scale, 2948.1* scale, 59.8* scale, 3120.6* scale, 376.2* scale, 3535.9* scale,
-                567.1 * scale, 2948.1* scale, -432.9* scale, 2948.1* scale, 59.8* scale, 3133.7* scale, 567.1* scale, 2948.1* scale,
-                -241.9 * scale, 3535.9* scale, 567.1* scale, 2948.1* scale, 58.5* scale, 3089.9* scale, -241.9* scale, 3535.9* scale,
-                376.2 * scale, 3535.9* scale, 67.1* scale, 2584.8* scale, 15.0* scale, 3128.8* scale, 376.2* scale, 3535.9* scale,
-                -241.9 * scale, 3535.9* scale, 67.1* scale, 2584.8* scale, 99.6* scale, 3123.9* scale, -241.9* scale, 3535.9* scale,
-                376.2 * scale, 3535.9* scale, -432.9* scale, 2948.1* scale, 59.8* scale, 3120.6* scale, 376.2* scale, 3535.9* scale,
-                567.1 * scale, 2948.1* scale, -432.9* scale, 2948.1* scale, 59.8* scale, 3133.7* scale, 567.1* scale, 2948.1* scale,
-                -241.9 * scale, 3535.9* scale, 567.1* scale, 2948.1* scale, 58.5* scale, 3089.9* scale, -241.9* scale, 3535.9* scale,
-                376.2 * scale, 3535.9* scale, 67.1* scale, 2584.8* scale, 15.0* scale, 3128.8* scale, 376.2* scale, 3535.9* scale,
-                -241.9 * scale, 3535.9* scale, 67.1* scale, 2584.8* scale, 99.6* scale, 3123.9* scale, -241.9* scale, 3535.9* scale);
-
-        flagPane.getChildren().add(polygon);
 
         flagPane.setPrefWidth(1280 - 200);
 
