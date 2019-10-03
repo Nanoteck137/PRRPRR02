@@ -31,15 +31,26 @@ namespace Calc
 
         private Dictionary<string, RoutedEventHandler> customClick;
 
+        private Lexer lexer;
+
         private TextBox textBox;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            customClick = new Dictionary<string, RoutedEventHandler>();
+            customClick = new Dictionary<string, RoutedEventHandler>
+            {
+                { "=", Equal_Click }
+            };
 
-            customClick.Add("=", Equal_Click);
+            lexer = new Lexer("a+2+");
+            Token token = lexer.NextToken();
+            token = lexer.NextToken();
+            token = lexer.NextToken();
+            token = lexer.NextToken();
+            token = lexer.NextToken();
+            token = lexer.NextToken();
 
             this.grid.ColumnDefinitions.Add(new ColumnDefinition());
             this.grid.ColumnDefinitions.Add(new ColumnDefinition());
