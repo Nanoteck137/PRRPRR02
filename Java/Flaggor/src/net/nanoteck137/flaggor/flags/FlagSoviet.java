@@ -26,9 +26,9 @@ public class FlagSoviet extends Flag {
 
         Polygon hammer = Utils.renderHammerAndSickle(scale);
 
-        hammer.setFill(new Color(255 / 255.0f, 217 / 255.0f, 0 / 255.0f, 1.0f));
         hammer.setTranslateX(-90.0f * scale);
         hammer.setTranslateY(-20.0f * scale);
+        hammer.setFill(new Color(255 / 255.0f, 217 / 255.0f, 0 / 255.0f, 1.0f));
         flagGroup.getChildren().add(hammer);
 
         StackPane starPane = new StackPane();

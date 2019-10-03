@@ -35,26 +35,35 @@ public class FlagAmerican extends Flag {
 
         Rectangle rect = new Rectangle(unit * 8, unit * 7);
         rect.setTranslateX(-flagWidth / 2 + rect.getWidth() / 2 - 1);
-        rect.setTranslateY(-flagHeight / 2 + rect.getHeight() / 2);
+        rect.setTranslateY(-flagHeight / 2 + rect.getHeight() / 2 - 1);
         rect.setFill(new Color(60 / 255.0f, 59 / 255.0f, 110 / 255.0f, 1.0f));
         flagGroup.getChildren().add(rect);
 
         for(int i = 0; i < 9; i += 2) {
             for(int j = 0;  j < 6; j++) {
-                Polygon star = Utils.renderStar(1.4f);
+                Polygon star = Utils.renderStar(0.9f * scale);
                 star.setFill(new Color(254 / 255.0f, 254 / 255.0f, 254 / 255.0f, 1.0f));
-                star.setTranslateX(-flagWidth / 2 + star.getLayoutBounds().getWidth() / 2 + 8 + (unit + 8.0f)* j);
-                star.setTranslateY(-flagHeight / 2 + star.getLayoutBounds().getHeight() / 2 + 6 + (unit - 8) * i);
+
+                float xOffset = 3 * scale + 18 * scale * j;
+                star.setTranslateX(-flagWidth / 2 + star.getLayoutBounds().getWidth() / 2 + xOffset);
+
+                float yOffset = 10 * scale * i;
+                star.setTranslateY(-flagHeight / 2 + star.getLayoutBounds().getHeight() / 2 + yOffset);
+
                 flagGroup.getChildren().add(star);
             }
         }
 
         for(int i = 1; i < 9; i += 2) {
             for(int j = 0;  j < 5; j++) {
-                Polygon star = Utils.renderStar(1.4f);
+                Polygon star = Utils.renderStar(0.9f * scale);
                 star.setFill(new Color(254 / 255.0f, 254 / 255.0f, 254 / 255.0f, 1.0f));
-                star.setTranslateX(-flagWidth / 2 + star.getLayoutBounds().getWidth() / 2 + 24 + (unit + 8.0f) * j);
-                star.setTranslateY(-flagHeight / 2 + star.getLayoutBounds().getHeight() / 2 + 6 + (unit - 8) * i);
+
+                float xOffset = 12.0f * scale + (18.0f *scale) * j;
+                star.setTranslateX(-flagWidth / 2 + star.getLayoutBounds().getWidth() / 2 + xOffset);
+
+                float yOffset = 0.0f * scale + (10.0f * scale) * i;
+                star.setTranslateY(-flagHeight / 2 + star.getLayoutBounds().getHeight() / 2 + yOffset);
                 flagGroup.getChildren().add(star);
             }
         }
