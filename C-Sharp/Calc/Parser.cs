@@ -5,7 +5,7 @@ class Node
 
 }
 
-class NodeNumber
+class NodeNumber : Node
 {
     public double Number { get; private set; }
 
@@ -23,7 +23,7 @@ enum Operation
     MULTIPLY,
 }
 
-class NodeOp
+class NodeOp : Node
 {
     public Node Left { get; private set; }
     public Node Right { get; private set; }
